@@ -1,0 +1,14 @@
+<div [class.disabled]="building.price > elementsCount" class="building" (click)="onBuy()">
+    <div class="building-price">
+        {{building.price}}
+    </div>
+    <div class="building-image">
+        <img src="{{building.imagePath}}">
+    </div>
+    <div class="building-name">
+        {{building.name}}
+    </div>
+    <div class="building-count">
+        {{building.quantity}}
+    </div>
+</div>

@@ -1,0 +1,5 @@
+<div class="buildings-container">
+    <app-building 
+        *ngFor="let building of gameInstance.buildings" [building]="building" [elementsCount]="gameInstance.elementsCount"
+        (onBoughtElement)="onBought(building)"></app-building>
+</div>
