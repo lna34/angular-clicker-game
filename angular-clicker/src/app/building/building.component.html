@@ -1,14 +1,24 @@
 <div [class.disabled]="building.price > elementsCount" class="building" (click)="onBuy()">
-    <div class="building-price">
-        {{building.price}}
+    <div class="building-header">
+        <div class="building-price">
+           Prix: {{building.price}}
+        </div>
+        <div class="building-perSecond">
+            Poussins par seconde: {{building.perSecond}}
+        </div>
     </div>
-    <div class="building-image">
-        <img src="{{building.imagePath}}">
+    <div class="building-body">
+        <div class="building-image">
+            <img src="{{building.imagePath}}">
+        </div>
+        <div class="building-name">
+            {{building.name}}
+        </div>
+        <div class="building-count">
+            {{building.quantity}}
+        </div>
     </div>
-    <div class="building-name">
-        {{building.name}}
-    </div>
-    <div class="building-count">
-        {{building.quantity}}
+    <div class="building-footer">
+       + {{building.quantity * building.perSecond}} poussins par secondes
     </div>
 </div>
