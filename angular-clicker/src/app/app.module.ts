@@ -5,13 +5,15 @@ import { AppComponent } from './app.component';
 import { ClickerAreaComponent } from './clicker-area/clicker-area.component';
 import { BuildingsAreaComponent } from './buildings-area/buildings-area.component';
 import { BuildingComponent } from './building/building.component';
+import { BonusComponent } from './bonus/bonus.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ClickerAreaComponent,
     BuildingsAreaComponent,
-    BuildingComponent
+    BuildingComponent,
+    BonusComponent
   ],
   imports: [
     BrowserModule

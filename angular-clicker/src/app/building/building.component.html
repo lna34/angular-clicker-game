@@ -1,7 +1,7 @@
-<div [class.disabled]="building.price > elementsCount" class="building" (click)="onBuy()">
+<div *ngIf="building" [class.disabled]="building.currentPrice() > elementsCount" class="building" (click)="onBuy()">
     <div class="building-header">
         <div class="building-price">
-           Prix: {{building.price}}
+            Prix: {{building.currentPrice().toFixed(1)}}
         </div>
         <div class="building-perSecond">
             Poussins par seconde: {{building.perSecond}}
@@ -19,6 +19,6 @@
         </div>
     </div>
     <div class="building-footer">
-       + {{building.quantity * building.perSecond}} poussins par secondes
+        + {{building.qtePerSecond()}} poussins par secondes
     </div>
 </div>

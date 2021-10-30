@@ -1,5 +1,15 @@
 <div class="buildings-container">
-    <app-building 
-        *ngFor="let building of gameInstance.buildings" [building]="building" [elementsCount]="gameInstance.elementsCount"
-        (onBoughtElement)="onBought(building)"></app-building>
+    <h3 class="buildings-header">
+        Bâtiments
+    </h3>
+    <app-building *ngFor="let building of gameInstance.buildings" [building]="building"
+        [elementsCount]="gameInstance.elementsCount" (onBoughtElement)="onBought(building)"></app-building>
+
+    <h3 class="buildings-header" style="margin-top: 10px;">
+        Bonus
+    </h3>
+    <div style="display: flex;flex-wrap: wrap;justify-content: center;">
+        <app-bonus *ngFor="let bonus of gameInstance.bonuses" [bonus]="bonus"
+            [elementsCount]="gameInstance.elementsCount"></app-bonus>
+    </div>
 </div>

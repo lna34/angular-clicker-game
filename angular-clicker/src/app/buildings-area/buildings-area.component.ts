@@ -15,9 +15,11 @@ export class BuildingsAreaComponent implements OnInit {
   ngOnInit(): void {
     
   }
+
   onBought(building: Building){
-    building.quantity ++;
-    this.gameInstance.elementsCount -= building.price;
+    this.gameInstance.elementsCount -= building.currentPrice();
     this.gameInstance.perSecond += Math.round((building.perSecond + Number.EPSILON) * 100) / 100;
+    building.quantity ++;
   }
+
 }

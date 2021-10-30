@@ -15,7 +15,6 @@ export class BuildingComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.building.price > this.elementsCount)
   }
 
   onBuy() {

@@ -1,3 +1,4 @@
+import { Bonus } from "./bonus";
 import { Building } from "./building";
 
 export interface GameInstance{
@@ -5,4 +6,6 @@ export interface GameInstance{
     elementsCount: number;
     perSecond: number;
     buildings: Building[];
+    bonuses?: Bonus[];
+    multiplierPerCount: number;
 }
