@@ -20,6 +20,14 @@ export class ClickerAreaComponent implements OnInit {
   incrementCounter($event) {
     this.gameService.incrementElementsCount();
     this.animate($event);
+    this.playAudio()
+  }
+  playAudio(){
+    let audio = new Audio();
+    audio.src = "../assets/audio/coin.mp3";
+    audio.currentTime = .1;
+    audio.load();
+    audio.play();
   }
 
   animate($event) {

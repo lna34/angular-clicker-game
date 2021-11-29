@@ -10,7 +10,7 @@ import { interval } from 'rxjs';
 })
 export class GameService {
   private gameInstance: GameInstance;
-  private baseGameMoney: number = 100000000;
+  private baseGameMoney: number = 0;
   private basePerSecond: number = 0;
 
   constructor(private bonusService: BonusService, private buildingService: BuildingService) { }

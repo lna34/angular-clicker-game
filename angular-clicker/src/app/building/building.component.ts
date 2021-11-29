@@ -21,5 +21,14 @@ export class BuildingComponent implements OnInit {
     this.gameInstance.gameMoney -= building.getCurrentPrice();
     this.gameInstance.perSecond += Math.round((building.perSecond + Number.EPSILON) * 100) / 100;
     building.quantity ++;
+    this.playAudio();
+  }
+  playAudio(){
+    let audio = new Audio();
+    audio.src = "../assets/audio/pop.mp3";
+    audio.currentTime = .1;
+    audio.volume = .2;
+    audio.load();
+    audio.play();
   }
 }
