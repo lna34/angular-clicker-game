@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { GameInstance } from '../_models/gameInstance';
+import { GameService } from '../_services/game.service';
 
 @Component({
   selector: 'app-clicker-area',
@@ -7,19 +8,20 @@ import { GameInstance } from '../_models/gameInstance';
   styleUrls: ['./clicker-area.component.css']
 })
 export class ClickerAreaComponent implements OnInit {
-  @Input() gameInstance: GameInstance;
+  gameInstance: GameInstance;
 
-  constructor() {
-    // this.loadScripts();
+  constructor(private gameService: GameService) {
   }
 
   ngOnInit(): void {
+    this.gameInstance = this.gameService.getInstance();
   }
-  incrementCounter($event) {
-    this.gameInstance.elementsCount++;
 
+  incrementCounter($event) {
+    this.gameService.incrementElementsCount();
     this.animate($event);
   }
+
   animate($event) {
     if ($event.clientX === 0 && $event.clientY === 0) {
       const bbox = document.querySelector('.element').getBoundingClientRect();
@@ -27,13 +29,10 @@ export class ClickerAreaComponent implements OnInit {
       const y = bbox.top + bbox.height / 2;
       this.createParticle(x, y);
     } else {
-      for (let i = 0; i < 1; i++) {
-        // We call the function createParticle 30 times
-        // As we need the coordinates of the mouse, we pass them as arguments
-        this.createParticle($event.clientX, $event.clientY);
-      }
+      this.createParticle($event.clientX, $event.clientY);
     }
   }
+
   createParticle(x, y) {
     const particle = document.createElement('particle');
     document.body.appendChild(particle);
@@ -45,11 +44,12 @@ export class ClickerAreaComponent implements OnInit {
 
     // Generate a random color in a blue/purple palette
     particle.style.color = "#FFF";
+    particle.style.fontWeight = "bold";
     particle.innerHTML = '+1';
 
-    // Generate a random x & y destination within a distance of 75px from the mouse
-    const destinationX = x + (Math.random() - 0.5) * 2 * 75;
-    const destinationY = y + (Math.random() - 2) * 2 * 75;
+    // Generate a random x & y destination within a distance of 50px from the mouse
+    const destinationX = x + (Math.random() - 0.5) * 2 * 100;
+    const destinationY = y + (Math.random() - 2) * 2 * 100;
 
     // Store the animation in a variable as we will need it later
     const animation = particle.animate([
@@ -66,10 +66,9 @@ export class ClickerAreaComponent implements OnInit {
       }
     ], {
       // Set a random duration from 500 to 1500ms
-      duration: 1500,
+      duration: 2500,
       easing: 'cubic-bezier(0, .9, .57, 1)',
       // Delay every particle with a random value of 200ms
-      delay: Math.random() * 200
     });
 
     // When the animation is complete, remove the element from the DOM

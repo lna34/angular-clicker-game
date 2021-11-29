@@ -1,19 +1,20 @@
 .building {
     display: flex;
     flex-direction: column;
-    background: #FFF;
-    border: 1px solid #dadce0;
+    background: #303134;
     cursor: pointer;
-    width: 18vw;
-    margin-top: 5px;
+    width: 450px;
+    border-radius: 10px;
+    margin-top: 10px;
+    color:#e8eaed;
+    padding: 10px;
+
 }
 .building-header, .building-footer{
     height: 30px;
     padding: 5px;
     display: flex;
     align-items: center;
-    background-color: #585F78;
-    color: #FFF;
 }
 .building-header{
     margin-bottom: 5px;
@@ -21,8 +22,10 @@
 .building-footer{
     justify-content: center;
 }
-.building-price{
-    padding-left: 5px;
+.building-qte{
+    font-size: 13px;
+    margin-top: 3px;
+
 }
 .building-perSecond{
     margin-left: auto;
@@ -48,7 +51,9 @@
 .building-name {
     font-size: 20px;
     line-height: 30px;
-
+}
+.building-price {
+    font-size: 16px;
 }
 
 .disabled{

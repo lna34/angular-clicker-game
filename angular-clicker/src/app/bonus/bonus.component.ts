@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Bonus } from '../_models/bonus';
+import { GameInstance } from '../_models/gameInstance';
+import { GameService } from '../_services/game.service';
 
 @Component({
   selector: 'app-bonus',
@@ -7,19 +9,21 @@ import { Bonus } from '../_models/bonus';
   styleUrls: ['./bonus.component.css']
 })
 export class BonusComponent implements OnInit {
-  @Input() bonus: Bonus;
-  @Input() elementsCount: number;
-  isInfoDisplayed: boolean;
-  constructor() { }
+  gameInstance: GameInstance;
+  isInfoDisplayed: boolean = false;
+
+  constructor(private gameService: GameService) { }
 
   ngOnInit(): void {
-    this.isInfoDisplayed = false;
+    this.gameInstance = this.gameService.getInstance();
   }
 
   displayInfo() {
     this.isInfoDisplayed = !this.isInfoDisplayed;
   }
+
   hideInfo(){
     this.isInfoDisplayed = false;
   }
+  
 }

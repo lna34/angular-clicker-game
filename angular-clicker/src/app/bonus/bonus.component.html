@@ -1,6 +1,9 @@
 <div *ngIf="isInfoDisplayed">
     ahaagyaegegeahgeheza
 </div>
-<div *ngIf="!bonus.isActive" [class.disabled]="bonus.price > elementsCount" class="bonus" (mouseOver)="displayInfo()" (mouseOut)="hideInfo()">
-    {{bonus.name}}
+<div *ngFor="let bonus of gameInstance.bonuses">
+    <div *ngIf="!bonus.isActive" [class.disabled]="bonus.price > gameInstance.gameMoney" class="bonus"
+        (mouseOver)="displayInfo()" (mouseOut)="hideInfo()">
+        {{bonus.name}}
+    </div>
 </div>

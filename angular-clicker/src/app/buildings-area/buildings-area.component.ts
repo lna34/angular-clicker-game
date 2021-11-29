@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Building } from '../_models/building';
 import { GameInstance } from '../_models/gameInstance';
+import { GameService } from '../_services/game.service';
 
 @Component({
   selector: 'app-buildings-area',
@@ -8,18 +9,12 @@ import { GameInstance } from '../_models/gameInstance';
   styleUrls: ['./buildings-area.component.css']
 })
 export class BuildingsAreaComponent implements OnInit {
-  @Input() gameInstance: GameInstance;
+  gameInstance: GameInstance;
 
-  constructor() { }
+  constructor(private gameService: GameService) { }
 
   ngOnInit(): void {
-    
-  }
-
-  onBought(building: Building){
-    this.gameInstance.elementsCount -= building.currentPrice();
-    this.gameInstance.perSecond += Math.round((building.perSecond + Number.EPSILON) * 100) / 100;
-    building.quantity ++;
+    this.gameInstance = this.gameService.getInstance();
   }
 
 }

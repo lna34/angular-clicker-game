@@ -1,11 +1,11 @@
 <div class="element-container">
     <div class="element-counter">
         <div class="counter">
-            {{gameInstance.elementsCount.toFixed(0)}} poussins
+            {{gameInstance.getGameMoneyFormatted()}} 🪙
         </div>
         <div class="per-second">
-            {{gameInstance.perSecond.toFixed(1)}} par secondes
+            {{gameInstance.getPerSecondFormatted()}} par secondes
         </div>
     </div>
-    <img class="element" src="../../assets/images/egg.png" (click)="incrementCounter($event)">
+    <span class="element" (click)="incrementCounter($event)">🪙</span>
 </div>

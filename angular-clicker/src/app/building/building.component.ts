@@ -1,6 +1,8 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { Building } from '../_models/building';
+import { GameInstance } from '../_models/gameInstance';
+import { GameService } from '../_services/game.service';
 
 @Component({
   selector: 'app-building',
@@ -8,16 +10,16 @@ import { Building } from '../_models/building';
   styleUrls: ['./building.component.css']
 })
 export class BuildingComponent implements OnInit {
-  @Input() building: Building;
-  @Input() elementsCount: number;
-  @Output() onBoughtElement: EventEmitter<Building> = new EventEmitter();
-
-  constructor() { }
+  gameInstance: GameInstance;
+  constructor(private gameService: GameService) { }
 
   ngOnInit(): void {
+    this.gameInstance = this.gameService.getInstance();
   }
 
-  onBuy() {
-    this.onBoughtElement.emit(this.building);
+  onBuy(building: Building) {
+    this.gameInstance.gameMoney -= building.getCurrentPrice();
+    this.gameInstance.perSecond += Math.round((building.perSecond + Number.EPSILON) * 100) / 100;
+    building.quantity ++;
   }
 }

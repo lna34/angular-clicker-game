@@ -1,24 +1,21 @@
-<div *ngIf="building" [class.disabled]="building.currentPrice() > elementsCount" class="building" (click)="onBuy()">
-    <div class="building-header">
-        <div class="building-price">
-            Prix: {{building.currentPrice().toFixed(1)}}
+<div *ngFor="let building of gameInstance.buildings">
+    <div *ngIf="building" [class.disabled]="building.getCurrentPrice() > gameInstance.gameMoney" class="building"
+        (click)="onBuy(building)">
+        <div class="building-body">
+            <div class="building-image">
+                <img src="{{building.imagePath}}">
+            </div>
+            <div class="building-info-container" style="margin-left:30px">
+                <div class="building-name">
+                    {{building.name}}  ({{building.getCurrentPriceFormatted()}} 🪙)
+                </div>
+                <div class="building-qte">
+                    Ajoute {{building.perSecond}} par seconde
+                </div>
+            </div>
+            <div class="building-count">
+                {{building.quantity}}
+            </div>
         </div>
-        <div class="building-perSecond">
-            Poussins par seconde: {{building.perSecond}}
-        </div>
-    </div>
-    <div class="building-body">
-        <div class="building-image">
-            <img src="{{building.imagePath}}">
-        </div>
-        <div class="building-name">
-            {{building.name}}
-        </div>
-        <div class="building-count">
-            {{building.quantity}}
-        </div>
-    </div>
-    <div class="building-footer">
-        + {{building.qtePerSecond()}} poussins par secondes
     </div>
 </div>
