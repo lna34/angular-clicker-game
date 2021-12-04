@@ -27,7 +27,7 @@ export class BuildingComponent implements OnInit {
     let audio = new Audio();
     audio.src = "../assets/audio/pop.mp3";
     audio.currentTime = .1;
-    audio.volume = .2;
+    audio.volume = .18;
     audio.load();
     audio.play();
   }

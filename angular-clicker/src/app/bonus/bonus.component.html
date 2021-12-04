@@ -1,9 +1,19 @@
-<div *ngIf="isInfoDisplayed">
-    ahaagyaegegeahgeheza
-</div>
 <div *ngFor="let bonus of gameInstance.bonuses">
-    <div *ngIf="!bonus.isActive" [class.disabled]="bonus.price > gameInstance.gameMoney" class="bonus"
-        (mouseOver)="displayInfo()" (mouseOut)="hideInfo()">
-        {{bonus.name}}
+    <div *ngIf="bonus" class="bonus" (click)="onBuy(bonus)">
+        <div class="bonus-body">
+            <div class="bonus-image">
+            </div>
+            <div class="bonus-info-container" style="margin-left:20px">
+                <div class="bonus-name">
+                    {{bonus.name}}
+                </div>
+                <div class="bonus-qte">
+                    {{bonus.description}}
+                </div>
+            </div>
+            <div class="bonus-count">
+                {{bonus.price}} 🪙
+            </div>
+        </div>
     </div>
 </div>

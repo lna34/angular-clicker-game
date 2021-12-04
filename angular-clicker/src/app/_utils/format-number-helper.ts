@@ -8,7 +8,6 @@ enum Abbreviation {
 }
 
 export class FormatNumberHelper {
-
     // Format large numbers into more readable values.
     static formatNumber(number: Number) {
         let numberToString = number.toFixed(0);
@@ -20,6 +19,8 @@ export class FormatNumberHelper {
             let numberAbbreviation = this.getNumberAbbreviation(numberLength);
 
             numberToString = numberLeftPart + (numberRightPart.length != 0 ? "." : "") + numberRightPart + numberAbbreviation;
+        } else {
+            numberToString = number.toFixed(1);
         }
 
         return numberToString;

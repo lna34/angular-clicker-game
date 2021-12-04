@@ -25,5 +25,8 @@ export class BonusComponent implements OnInit {
   hideInfo(){
     this.isInfoDisplayed = false;
   }
+  onBuy(bonus){
+
+  }
   
 }

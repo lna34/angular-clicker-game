@@ -1,11 +1,20 @@
 .buildings-header{
     text-align: center;
     width: 100%;
-    padding-bottom: 20px;
-    padding-top: 20px;
-    margin-bottom: 10px;
     margin-top: 0px;
     color: #FFF;
     border-bottom: 1px solid #3c4043;
-
+    display: flex;
+}
+.menu-item{
+    flex-grow: 1;
+    cursor: pointer;
+    padding: 20px;
+    transition: all .2s ease-in-out;
+}
+.menu-item:hover{
+    background-color: rgba(255,255,255,.22);
+}
+.active-menu{
+    background-color: rgba(255,255,255,.10);
 }

@@ -2,9 +2,6 @@
     <div *ngIf="building" [class.disabled]="building.getCurrentPrice() > gameInstance.gameMoney" class="building"
         (click)="onBuy(building)">
         <div class="building-body">
-            <div class="building-image">
-                <img src="{{building.imagePath}}">
-            </div>
             <div class="building-info-container" style="margin-left:30px">
                 <div class="building-name">
                     {{building.name}}  ({{building.getCurrentPriceFormatted()}} 🪙)

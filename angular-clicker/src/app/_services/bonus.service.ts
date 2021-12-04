@@ -10,14 +10,7 @@ export class BonusService {
   
   getBonuses(): Bonus[] {
     var bonuses = [
-      new Bonus({ name: "Double-clic", description: "Double le nombre de poussins générés par le clic", isActive: false, price: 100, multiplier: 2 }),
-      new Bonus({}),
-      new Bonus({}),
-      new Bonus({}),
-      new Bonus({}),
-      new Bonus({}),
-      new Bonus({}),
-      new Bonus({}),
+      new Bonus({ name: "Double-clic", description: "Double le nombre de poussins générés par le clic", isActive: false, price: 100, multiplier: 2 })
     ]
     
     return bonuses;

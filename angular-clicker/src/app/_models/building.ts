@@ -13,12 +13,14 @@ export class Building {
     }
 
     getCurrentPrice(){
-        return this.price * Math.pow(1.07, this.quantity)
+        return this.price * Math.pow(1.08, this.quantity)
     }
     
     getCurrentPriceFormatted(){
         return FormatNumberHelper.formatNumber(this.getCurrentPrice());
     }
     
-    qtePerSecond = () => this.quantity * this.perSecond;
+    getQtePerSecond(){
+         this.quantity * this.perSecond;
+    }
 }

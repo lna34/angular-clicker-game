@@ -1,14 +1,15 @@
 <div class="buildings-container">
-    <h3 class="buildings-header">
-        Bâtiments
-    </h3>
-    
-    <app-building></app-building>
+    <div class="buildings-header">
+        <span class="material-icons menu-item" title="Batiments" routerLink="/buildings" routerLinkActive="active-menu">
+            maps_home_work
+        </span>
+        <span class="material-icons menu-item" title="Bonus" routerLink="/bonus" routerLinkActive="active-menu">
+            settings
+        </span>
+        <span class="material-icons menu-item" title="Stats" routerLink="/stats" routerLinkActive="active-menu"> 
+            leaderboard
+        </span>
+    </div>
 
-    <!-- <h3 class="buildings-header" style="margin-top: 10px;">
-        Bonus
-    </h3>
-    <div style="display: flex;flex-wrap: wrap;justify-content: center;">
-        <app-bonus></app-bonus>
-    </div> -->
+    <router-outlet style="margin-top:15px"></router-outlet>
 </div>
